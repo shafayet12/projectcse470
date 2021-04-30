@@ -1,0 +1,15 @@
+﻿@using OnlineShop.Service.ModelViews
+@model CatalogResult
+@{
+    Layout = null;  
+}
+<script>
+    angular.element(document.getElementById('productListController')).scope().updateLoadMoreShow(@Model.MoreResults);
+</script>
+@if (Model.Products.Count() > 0)
+{
+        foreach (var product in Model.Products)
+        {
+            @Html.Partial("_SmallProductWrap", product)
+        }
+}
